@@ -1,0 +1,33 @@
+body {
+	background: url(../img/bg_sys-info.png) no-repeat;
+}
+
+.sys-info h1 {
+	font-weight: 100;
+}
+
+.sys-info .list-block {
+	border-left: 7px solid #77aacc;
+	background: rgba(150, 200, 220, .2);
+	// min-height: 70px;
+	padding: 30px;
+}
+
+.sys-info .list-head {
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #555;
+	font-size: 1.2em;
+	border-bottom: 1px solid white;
+	border-top: 1px solid white;
+}
+
+.sys-info ul {
+	list-style: none;
+	padding: 10px 0 0;
+	margin: 0;
+}
+
+.sys-info .list-block li {
+	color: #55a;
+}

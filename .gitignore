@@ -1,0 +1,14 @@
+/node_modules/
+/dist/
+/.git/
+/src/css/
+/src/fonts/
+/src/img/
+/src/libs/
+/src/img/
+/src/favicon.ico
+/**/*.psd
+/**/Thumbs.db
+/**/.DS_Store
+/package.json
+/cmd.bat
