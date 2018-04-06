@@ -1,3 +1,9 @@
-body {
-	font-family: 'Roboto';
+@import "ws/main";
+
+    .footer {
+    margin: 10px 0 0;
+    padding: 25px;
+    background: #003355;
+    color: #eeeeee;
+    text-align: center;
 }

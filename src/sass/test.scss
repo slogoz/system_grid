@@ -1,0 +1,10 @@
+@import "ws/_main.scss";
+
+body {
+    @extend %body;
+}
+
+.content {
+    background-color: darken(white, 10%);
+    overflow: hidden;
+}

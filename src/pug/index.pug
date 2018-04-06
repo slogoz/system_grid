@@ -1,0 +1,51 @@
+extends templates/page-default
+
+mixin mContent(text)
+    -
+        if(text === undefined || text === false)
+            text = 'Далеко-далеко за словесными горами в стране, гласных и согласных.'
+
+    .message__text= text
+
+block title
+    title PUG. Проба пера.
+
+block style
+    link(rel="stylesheet" href="css/main.css")
+    link(rel="stylesheet" href="css/test.css")
+
+block body
+    div.container
+        div.row
+            -
+                var list = [
+                    {   class: 'first col-1', col: 1,
+                        content: '1 Далеко-далеко за словесныммммми горами в стране, гласных и согласных. Далеко-далеко за словесными горами в стране, гласных и согласных.'
+                    },
+                    {   class: 'two col-2', col: 2,
+                        content: false
+                    },
+                    {   class: 'three col-1', col: 1,
+                        content: '3. Далеко-далеко за словесными горами в стране.'
+                    },
+                    {   class: 'four col-3', col: 3,
+                        content: false
+                    },
+                    {   class: 'col-1', col: 1,
+                        content: 'Короткий текст'
+                    },
+                    {   class: 'col-4', col: 4,
+                        content: false
+                    }
+                ]
+
+            each item in list
+                div(class= item.class ? item.class : 'col-'+item.col)
+                    div.content
+                        +mContent(item.content)
+
+block footer
+    .footer
+        -var year = 2018
+
+        p © #{year} Builder «gulp+gut+sass»

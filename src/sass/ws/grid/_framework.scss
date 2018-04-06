@@ -1,0 +1,37 @@
+@mixin make-container($name-template: container, $col-space: $col-space) {
+    %#{$name-template} {
+        margin-right: auto;
+        margin-left: auto;
+        padding-left:  floor(($col-space / 2));
+        padding-right: ceil(($col-space / 2));
+
+        @extend %clearfix;
+    }
+}
+
+
+
+@mixin make-row($name-template: row, $col-space: $col-space) {
+
+    %#{$name-template} {
+        margin-left:  ceil(($col-space / -2));
+        margin-right: floor(($col-space / -2));
+
+        @extend %clearfix;
+    }
+}
+
+@mixin make-col($name-template: col, $col-space: $col-space, $col-number: $col-number, $col-size: 1) {
+    %#{$name-template} {
+        float: left;
+        width: percentage(1 / $col-number * $col-size);
+        padding-left:  floor(($col-space / 2));
+        padding-right: ceil(($col-space / 2));
+    }
+}
+
+@mixin make-cols($name-template: col, $col-space: $col-space, $col-number: $col-number) {
+    @for $i from 1 through $col-number {
+        @include make-col(#{$name-template}-#{$i}, $col-space, $col-number, $i);
+    }
+}

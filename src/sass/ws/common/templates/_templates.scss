@@ -1,0 +1,9 @@
+@import "clearfix";
+
+%body {
+    color: $color;
+    background-color: $bg-color;
+
+    font: $font-style $font-variant $font-weight #{$font-size}/#{$line-height} $font-family;
+}
+

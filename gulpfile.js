@@ -1,5 +1,3 @@
-// global.hostname = "test.pro";
-
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var browserSync = require('browser-sync');
@@ -7,22 +5,36 @@ var useref = require('gulp-useref');
 var gulpif = require('gulp-if');
 var uglify = require('gulp-uglify');
 var minifyCss = require('gulp-clean-css');
+var gulpPug = require('gulp-pug');
+var plumber = require('gulp-plumber');
+var notify = require('gulp-notify');
 
 gulp.task('hello', function() {
 	console.log('Hello!')
 });
 
+gulp.task('pug', function() {
+	return gulp.src('src/pug/*.pug')
+		.pipe(plumber({
+			errorHandler: notify.onError()
+		}))
+		.pipe(gulpPug({pretty: true}))
+		.pipe(gulp.dest('src/'));
+		// .pipe(browserSync.stream());
+});
+
 gulp.task('sass', function() {
 	return gulp.src('src/sass/**/*.scss')
-		.pipe(sass())
+		.pipe(sass().on('error', sass.logError))
 		.pipe(gulp.dest('src/css'));
 		// .pipe(browserSync.reload({
 		// 	stream: true
 		// }))
 });
 
-gulp.task('watch', ['browserSync', 'sass'], function() {
+gulp.task('watch', ['browserSync', 'sass', 'pug'], function() {
 	gulp.watch('src/sass/**/*.scss', ['sass']);
+	gulp.watch('src/pug/**/*.pug', ['pug']);
 	gulp.watch('src/*.html', browserSync.reload);
 	gulp.watch('src/js/**/*.js', browserSync.reload);
 	gulp.watch('src/css/**/*', browserSync.reload);

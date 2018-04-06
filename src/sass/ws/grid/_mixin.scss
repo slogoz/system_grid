@@ -1,0 +1,6 @@
+@mixin col($col-size: 1, $col-space: $col-spase) {
+    %#{$col-size} {
+
+    }
+}
+

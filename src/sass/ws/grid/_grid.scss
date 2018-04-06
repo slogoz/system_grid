@@ -1,0 +1,24 @@
+@import "variables";
+@import "templates";
+@import "mixin";
+@import "framework";
+
+@include make-container;
+@include make-row;
+@include make-cols;
+
+.container {
+    @extend %container;
+}
+
+.row {
+    @extend %row;
+}
+
+@for $i from 1 through $col-number {
+    .col-#{$i} {
+        @extend %col-#{$i};
+
+        border-left: 1px solid #dddddd;
+    }
+}
